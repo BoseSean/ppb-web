@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NEUTRAL BUOYANCY — Scuba Trainer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/ppb-demo/assets/index-BtqSC0rE.js"></script>
+  <link rel="stylesheet" crossorigin href="/ppb-demo/assets/index-BmcEdjDr.css">
+</head>
+<body>
+
+<!-- ===== WELCOME SCREEN ===== -->
+<div id="welcomeScreen" class="welcome-screen">
+
+  <div class="ws-bg-grid"></div>
+
+  <header class="ws-header ws-section">
+    <div class="ws-logo-mark">
+      <span class="ws-logo-depth">188 m</span>
+      <span class="ws-logo-line"></span>
+      <span class="ws-logo-depth ws-logo-depth-target">10 m</span>
+    </div>
+    <button id="langToggle" class="ws-lang-btn" data-i18n="lang_btn">中文</button>
+  </header>
+
+  <main class="ws-main">
+
+    <div class="ws-hero ws-section">
+      <div class="ws-eyebrow">
+        <span class="ws-eyebrow-tick">▸</span>
+        <span data-i18n="welcome_eyebrow">PRE-DIVE BRIEF · CONTROL REFERENCE</span>
+      </div>
+      <h1 class="ws-title" data-i18n="welcome_title">NEUTRAL · BUOYANCY · TRAINER</h1>
+    </div>
+
+    <section class="ws-controls ws-section">
+
+      <div class="ws-block ws-block-full">
+        <div class="ws-block-head">
+          <span class="ws-block-idx">01</span>
+          <span class="ws-block-name" data-i18n="grp_breath">BREATHING</span>
+          <span class="ws-block-rule"></span>
+        </div>
+        <div class="ws-rows">
+          <div class="ws-row"><kbd data-i18n="k_wheel_dn">WHEEL ↓</kbd><span data-i18n="v_wheel_dn">Inhale — shift lung baseline toward TLC</span></div>
+          <div class="ws-row"><kbd data-i18n="k_wheel_up">WHEEL ↑</kbd><span data-i18n="v_wheel_up">Exhale — shift lung baseline toward RV</span></div>
+          <div class="ws-row"><kbd data-i18n="k_mmb">MMB HOLD</kbd><span data-i18n="v_mmb">Breath-hold (Boyle's Law — ascend with care)</span></div>
+        </div>
+      </div>
+
+      <div class="ws-block-row2">
+        <div class="ws-block">
+          <div class="ws-block-head">
+            <span class="ws-block-idx">02</span>
+            <span class="ws-block-name" data-i18n="grp_move">MOVEMENT</span>
+            <span class="ws-block-rule"></span>
+          </div>
+          <div class="ws-rows">
+            <div class="ws-row"><kbd data-i18n="k_a">A</kbd><span data-i18n="v_a">Frog-kick left (each tap = one stroke)</span></div>
+            <div class="ws-row"><kbd data-i18n="k_d">D</kbd><span data-i18n="v_d">Frog-kick right</span></div>
+          </div>
+        </div>
+
+        <div class="ws-block">
+          <div class="ws-block-head">
+            <span class="ws-block-idx">03</span>
+            <span class="ws-block-name" data-i18n="grp_buoy">BUOYANCY</span>
+            <span class="ws-block-rule"></span>
+          </div>
+          <div class="ws-rows">
+            <div class="ws-row"><kbd data-i18n="k_w">W</kbd><span data-i18n="v_w">BCD inflate</span></div>
+            <div class="ws-row"><kbd data-i18n="k_s">S</kbd><span data-i18n="v_s">BCD dump (vent)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ws-block ws-block-system">
+        <div class="ws-block-head">
+          <span class="ws-block-idx">04</span>
+          <span class="ws-block-name" data-i18n="grp_sys">SYSTEM</span>
+          <span class="ws-block-rule"></span>
+        </div>
+        <div class="ws-sys-row">
+          <span class="ws-sys-cell"><kbd data-i18n="k_r">R</kbd><span data-i18n="v_r">Reset simulation</span></span>
+          <span class="ws-sys-cell"><kbd data-i18n="k_g">G</kbd><span data-i18n="v_g">Gear setup</span></span>
+          <span class="ws-sys-cell"><kbd data-i18n="k_o">O</kbd><span data-i18n="v_o">Settings</span></span>
+          <span class="ws-sys-cell"><kbd data-i18n="k_esc">ESC</kbd><span data-i18n="v_esc">Close modal</span></span>
+        </div>
+      </div>
+
+    </section>
+
+    <aside class="ws-context ws-section">
+      <div class="ws-context-item">
+        <div class="ws-context-label" data-i18n="obj_head">OBJECTIVE</div>
+        <p class="ws-context-body" data-i18n="obj_body_short">Hold ±0.5 m of 10 m target. On-target time accumulates in the HOLD SCORE panel.</p>
+      </div>
+      <div class="ws-context-divider"></div>
+      <div class="ws-context-item">
+        <div class="ws-context-label" data-i18n="ab_head">AUTONOMIC BREATHING</div>
+        <p class="ws-context-body" data-i18n="ab_body_short">Diver auto-breathes around FRC (2.5 L) at 12 bpm rest. CO₂ + kicks raise rate and tidal volume.</p>
+      </div>
+    </aside>
+
+    <div class="ws-cta ws-section">
+      <button id="welcomeStart" class="ws-start-btn">
+        <span data-i18n="welcome_start">DIVE IN</span>
+        <span class="ws-start-arrow">↓</span>
+      </button>
+      <div class="ws-enter-hint">— or press ENTER —</div>
+    </div>
+
+  </main>
+</div>
+
+<div class="game">
+
+  <!-- ===== WATER VIEW (Pixi canvas mounts inside) ===== -->
+  <div class="water" id="water-host">
+    <div class="water-canvas" id="water-canvas"></div>
+    <div class="water-overlay">
+      <span class="frame-corner fc-tl"></span>
+      <span class="frame-corner fc-tr"></span>
+      <span class="frame-corner fc-bl"></span>
+      <span class="frame-corner fc-br"></span>
+
+      <div class="depth-badge">
+        <span class="lbl" data-i18n="ov_depth">DEPTH</span>
+        <span class="val" id="ovDepth">0.00</span>
+        <span class="unit">m</span>
+      </div>
+
+      <div class="target-tag">
+        <div class="t1" data-i18n="ov_target_hold">TARGET HOLD</div>
+        <div class="t2"><span id="ovTarget">10.0</span> m · ±0.5</div>
+      </div>
+
+      <div class="hold-indicator" id="holdInd">
+        <span data-i18n="ov_on_target">ON TARGET</span>
+        <div class="bar" id="holdBar"></div>
+      </div>
+
+      <div class="breath-hold-indicator" id="breathHoldInd">
+        ◯ <span data-i18n="ov_breath_hold">BREATH HOLD</span> <span id="breathHoldTime">0.0s</span>
+      </div>
+
+      <div class="baro-banner" id="baroBanner">
+        <div class="baro-icon">▲</div>
+        <div class="baro-text">
+          <div class="baro-title" id="baroTitle">LUNG OVERPRESSURE</div>
+          <div class="baro-detail"><span data-i18n="ov_transpul">Transpulmonary</span> <span id="baroVal">+0.00</span> bar · <span data-i18n="ov_dont_hold">DO NOT HOLD BREATH ON ASCENT</span></div>
+        </div>
+      </div>
+<!-- TODO remove this -->
+      <!-- <div class="title-strip">NEUTRAL · BUOYANCY · TRAINER</div> -->
+
+      <div class="legend">
+        <span class="row" data-i18n-html="legend_row1"><b>WHEEL</b> bias inhale ↔ exhale &nbsp; · &nbsp; <b>MMB HOLD</b> breath-hold</span>
+        <span class="row" data-i18n-html="legend_row2"><b>A</b>/<b>D</b> frog-kick &nbsp; · &nbsp; <b>W</b> BCD inflate &nbsp; · &nbsp; <b>S</b> BCD dump</span>
+        <span class="row" data-i18n-html="legend_row3"><b>R</b> reset &nbsp; · &nbsp; <b>G</b> gear &nbsp; · &nbsp; <b>O</b> settings</span>
+      </div>
+
+      <div class="overlay-btn-row">
+        <button class="gear-btn" id="settingsBtn">≡ <span data-i18n="btn_settings">SETTINGS</span></button>
+        <button class="gear-btn" id="gearBtn">⚙ <span data-i18n="btn_gear">GEAR</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HUD STRIP ===== -->
+  <div class="hud">
+
+    <section class="panel">
+      <h3><span data-i18n="hud_depth">DEPTH</span> <span class="tag">M / SW</span></h3>
+      <div class="depth-panel">
+        <div class="col">
+          <div class="big-num" id="depthVal">0.00</div>
+          <div class="sub">
+            <span>P&nbsp;<b id="pAtm">1.00</b> atm</span>
+            <span>ρ&nbsp;<b>1025</b></span>
+          </div>
+        </div>
+        <div class="depth-scale" id="depthScale">
+          <div class="pos" id="depthPos" style="top:0%"></div>
+        </div>
+      </div>
+      <div class="status-line"><b>SW</b> · 0–188 m</div>
+    </section>
+
+    <section class="panel">
+      <h3><span data-i18n="hud_vertical">VERTICAL</span> <span class="tag">M/S</span></h3>
+      <div class="vel-display">
+        <div class="vel-arrow" id="velArrow">—</div>
+        <div class="mid-num"><span id="velVal">0.00</span><span class="unit">m/s</span></div>
+        <div class="sub">
+          <span>a <b id="accVal">0.00</b> m/s²</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3><span data-i18n="hud_lung">LUNG VOLUME</span> <span class="tag">L · TLC 6.0</span></h3>
+      <div class="lung-row">
+        <div class="col">
+          <div class="row">
+            <div class="mid-num" id="lungVal">2.50</div>
+            <span class="unit">L</span>
+          </div>
+          <div class="sub"><span><span data-i18n="hud_base">BASE</span> <b id="lungBase">2.50</b> L</span></div>
+          <div class="sub"><span>Pₜₚ <b id="lungP">0.00</b> bar</span></div>
+          <div class="sub"><span><span data-i18n="hud_rate">RATE</span> <b id="lungRate">12</b> bpm</span><span>TV <b id="lungTV">0.5</b> L</span></div>
+          <div class="sub" id="lungWarn" style="color: var(--am); display:none"></div>
+        </div>
+        <div class="lung-bar" id="lungBar">
+          <div class="lung-fill" id="lungFill"></div>
+          <div class="lung-target" id="lungTargetLine"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3><span data-i18n="hud_bcd">BCD</span> <span class="tag" id="bcdTag">14 kg lift</span></h3>
+      <div class="col">
+        <div class="row">
+          <div class="mid-num" id="bcdVal">0.00</div>
+          <span class="unit" data-i18n="hud_l_at_depth">L @ depth</span>
+        </div>
+        <div class="bcd-bar">
+          <div class="bcd-fill" id="bcdFill" style="width:0%"></div>
+        </div>
+        <div class="sub">
+          <span><span data-i18n="hud_net_f">NET F</span> <b id="netF">0.0</b> N</span>
+          <span id="netFLabel" style="color: var(--gn)" data-i18n="state_neutral">NEUTRAL</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3><span data-i18n="hud_tank">TANK / SAC</span> <span class="tag" id="tankTag">AL80 · EAN32</span></h3>
+      <div class="col">
+        <div class="row">
+          <div class="mid-num" id="tankPVal">207</div>
+          <span class="unit">bar</span>
+        </div>
+        <div class="sub"><span><span data-i18n="hud_gas_mass">GAS MASS</span> <b id="gasMass">0.00</b> kg</span></div>
+        <div class="tank-bar">
+          <div class="tank-fill" id="tankFill" style="width:100%"></div>
+          <div class="tank-reserve"></div>
+        </div>
+        <div class="sub">
+          <span>SAC 5s <b id="sac5s">—</b></span>
+          <span><span data-i18n="hud_avg">AVG</span> <b id="sacAvg">—</b></span>
+          <span class="sub-faint">L/min</span>
+        </div>
+        <div class="sub">
+          <span><span data-i18n="hud_t_left">T-LEFT</span> <b id="gasTime">∞</b> min</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3><span data-i18n="hud_co2">CO₂ &amp; BREATH</span> <span class="tag">mmHg · BPM</span></h3>
+      <div class="col">
+        <div class="row">
+          <span class="breath-dot" id="breathDot"></span>
+          <div class="mid-num"><span id="co2Val">40</span><span class="unit">mmHg</span></div>
+        </div>
+        <div class="co2-bar">
+          <div class="co2-needle" id="co2Needle" style="left:25%"></div>
+        </div>
+        <div class="co2-scale">
+          <span>30</span><span data-i18n="hud_co2_40">40·rest</span><span>50</span><span data-i18n="hud_co2_60">60·brkpt</span><span data-i18n="hud_co2_80">80·danger</span>
+        </div>
+        <div class="sub">
+          <span><span data-i18n="hud_rate">RATE</span> <b id="brRate">0</b> bpm</span>
+          <span><span data-i18n="hud_state">STATE</span> <b id="brState" data-i18n="state_rest">REST</b></span>
+        </div>
+        <div class="sub">
+          <span><span data-i18n="hud_exertion">EXERTION</span> <b id="exertVal">0</b>%</span>
+          <span>Vx <b id="vxVal">0.00</b> m/s</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3><span data-i18n="hud_hold">HOLD SCORE</span> <span class="tag" data-i18n="hud_session">SESSION</span></h3>
+      <div class="col">
+        <div class="row">
+          <div class="big-num" id="scoreVal" style="font-size:38px">0</div>
+          <span class="unit" data-i18n="hud_s_on_tgt">s on tgt</span>
+        </div>
+        <div class="sub">
+          <span><span data-i18n="hud_best">BEST</span> <b id="bestVal">0.0</b> s</span>
+          <span><span data-i18n="hud_dev">DEV</span> <b id="devVal">0.00</b> m</span>
+        </div>
+        <div class="sub" style="margin-top:10px; color: var(--ink-dim)">
+          <span id="gearSummary">AL80 · 5mm · Aluminum · 5.0kg Pb</span>
+        </div>
+        <div class="sub">
+          <span>g 9.81 · ρ 1025 · Cd·A 0.28</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+</body>
+</html>
